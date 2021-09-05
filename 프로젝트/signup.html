@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HappyHouse</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f28f9487ba8902ceb238633f88a176bf&libraries=services"
+    ></script>
+    <script type="text/javascript" src="./js/login.js"></script>
+    <link rel="stylesheet" href="./css/signup.css" />
+  </head>
+  <body>
+    <header id="headerwrap" class="fullscreen">
+      <nav class="navbar navbar-expand-sm">
+        <!-- Brand/logo -->
+        <h2>
+          <a class="navbar-brand text-white" href="index.html">HAPPY HOUSE</a>
+        </h2>
+
+        <!-- Links -->
+        <div
+          class="login-header navbar-collapse justify-content-end"
+          style="display: none"
+        >
+          <button
+            class="btn btn-sm btn-outline-light m-1"
+            type="button"
+            id="logoutBtn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              width="16"
+              height="16"
+            >
+              <path
+                fill="#FFF"
+                fill-rule="evenodd"
+                d="M10.5 5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zm.061 3.073a4 4 0 10-5.123 0 6.004 6.004 0 00-3.431 5.142.75.75 0 001.498.07 4.5 4.5 0 018.99 0 .75.75 0 101.498-.07 6.005 6.005 0 00-3.432-5.142z"
+              ></path>
+            </svg>
+            Logout
+          </button>
+          <button
+            type="button"
+            class="
+              btn btn-sm
+              justify-content-end
+              btn-outline-light
+              dropdown-toggle--no-caret
+              m-1
+            "
+            data-toggle="dropdown"
+            onclick="location.href='member.html'"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              width="16"
+              height="16"
+            >
+              <path
+                fill="#FFF"
+                fill-rule="evenodd"
+                d="M10.5 5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zm.061 3.073a4 4 0 10-5.123 0 6.004 6.004 0 00-3.431 5.142.75.75 0 001.498.07 4.5 4.5 0 018.99 0 .75.75 0 101.498-.07 6.005 6.005 0 00-3.432-5.142z"
+              ></path>
+            </svg>
+            회원정보
+          </button>
+        </div>
+
+        <div class="logout-header navbar-collapse justify-content-end">
+          <button
+            class="btn btn-sm btn-outline-light m-1"
+            type="button"
+            onclick="location.href='signup.html'"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              width="16"
+              height="16"
+            >
+              <path
+                fill="#FFF"
+                fill-rule="evenodd"
+                d="M10.5 5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zm.061 3.073a4 4 0 10-5.123 0 6.004 6.004 0 00-3.431 5.142.75.75 0 001.498.07 4.5 4.5 0 018.99 0 .75.75 0 101.498-.07 6.005 6.005 0 00-3.432-5.142z"
+              ></path>
+            </svg>
+            SignUp
+          </button>
+          <button
+            type="button"
+            class="
+              btn btn-sm
+              justify-content-end
+              btn-outline-light
+              dropdown-toggle--no-caret
+              m-1
+            "
+            data-toggle="dropdown"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-lock-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+              />
+            </svg>
+            Login
+          </button>
+          <div
+            class="dropdown-menu dropdown-menu-right dropdown-animation p-3"
+            style="z-index: 99999999"
+          >
+            <form id="loginForm">
+              <div class="form-group">
+                <label class="control-label">아이디</label>
+                <input type="text" class="form-control" name="id" />
+              </div>
+              <div class="form-group">
+                <label class="control-label">비밀번호</label>
+                <input type="password" class="form-control" name="pw" />
+              </div>
+              <button
+                type="submit"
+                id="loginBtn"
+                class="btn btn-outline-success btn-sm"
+              >
+                로그인
+              </button>
+            </form>
+            <a class="btn btn-sm">비밀번호 찾기</a>
+          </div>
+        </div>
+      </nav>
+
+      <nav>
+        <div>
+          <nav class="navbar navbar-expand-md navbar-light">
+            <!-- Links -->
+            <div class="navbar-collapse justify-content-end">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">공지사항</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">오늘의 뉴스</a>
+                </li>
+              </ul>
+              <ul class="login-header nav navbar-nav navbar-right">
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">주변 탐방</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">관심 지역 설정</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">관심 지역 둘러보기</a>
+                </li>
+
+                <li class="nav-item">
+                  <button class="btn btn-light">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"
+                      ></path>
+                    </svg>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </nav>
+      <div class="flex-grow p-1">
+        <div class="center">
+          <h1>회원가입</h1>
+        </div>
+      </div>
+      <div class="backstretch">
+        <img
+          class="backstretch-img"
+          src="./image/bg/bg2.jpg"
+          alt="배경 이미지"
+        />
+      </div>
+    </header>
+
+    <!-- breadcrumb start -->
+    <!-- ================ -->
+    <div class="breadcrumb-container">
+      <div class="container"></div>
+    </div>
+
+    <!-- main-container start -->
+    <!-- ================ -->
+    <div
+      class="main-container dark-translucent-bg"
+      style="background-image: url('./image/background_gray.jpg')"
+    >
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <!-- main start -->
+          <!-- ================ -->
+          <div
+            class="main animated fadeInUpSmall"
+            data-animation-effect="fadeInUpSmall"
+            data-effect-delay="100"
+          >
+            <div class="form-block p-30 light-gray-bg border-clear">
+              <h2 class="title">회원 가입</h2>
+
+              <form id="memberForm" class="form-horizontal">
+                <div class="form-group has-feedback row">
+                  <label
+                    for="inputName"
+                    class="col-md-4 text-md-right col-form-label"
+                    >아이디
+                    <span class="text-danger small">*</span>
+                  </label>
+                  <div class="col-md-8">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputName"
+                      placeholder=""
+                      required
+                      name="id"
+                    />
+                  </div>
+                </div>
+                <div class="form-group has-feedback row">
+                  <label
+                    for="inputLastName"
+                    class="col-md-4 text-md-right col-form-label"
+                    >비밀번호
+                    <span class="text-danger small">*</span>
+                  </label>
+                  <div class="col-md-8">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputLastName"
+                      placeholder="6자리 이상"
+                      required
+                      name="pw"
+                    />
+                  </div>
+                </div>
+                <div class="form-group has-feedback row">
+                  <label
+                    for="inputUserName"
+                    class="col-md-4 control-label text-md-right col-form-label"
+                    >이름
+                    <span class="text-danger small">*</span>
+                  </label>
+                  <div class="col-md-8">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputUserName"
+                      placeholder="User Name"
+                      required
+                      name="name"
+                    />
+                  </div>
+                </div>
+                <div class="form-group has-feedback row">
+                  <label
+                    for="inputEmail"
+                    class="col-md-4 control-label text-md-right col-form-label"
+                    >주소
+                    <span class="text-danger small">*</span>
+                  </label>
+                  <div class="col-md-8">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputEmail"
+                      placeholder="address"
+                      required
+                      name="addr"
+                    />
+                  </div>
+                </div>
+                <div class="form-group has-feedback row">
+                  <label
+                    for="inputPassword"
+                    class="col-md-4 control-label text-md-right col-form-label"
+                    >전화번호
+                    <span class="text-danger small">*</span>
+                  </label>
+                  <div class="col-md-8">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputPassword"
+                      placeholder="010-xxx-xxxx"
+                      required
+                      name="tel"
+                    />
+                  </div>
+                </div>
+
+                <div class class="form-group row">
+                  <div class="ml-md-auto col-md-9">
+                    <button
+                      id="signupBtn"
+                      type="submit"
+                      class="btn btn-group btn-warning btn-animated"
+                    >
+                      가입하기
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- main end -->
+        </div>
+      </div>
+    </div>
+    <!-- main-container end -->
+
+    <!-- footer top start -->
+    <!-- ================ -->
+
+    <!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
+    <!-- ================ -->
+    <footer class="text-center bg-light text-muted p-4">
+      copyright by SSAFY. All rights reserved.
+    </footer>
+  </body>
+</html>
